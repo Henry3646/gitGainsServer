@@ -43,8 +43,8 @@ export const getWorkoutsByOwnerId = async (req, res) => {
 //TODO - add security to check if user owns workout
 export const deleteWorkout = async (req, res) => {
     try {
-        Workout.deleteOne({_id: req.body.workoutID})
-        return res.status(200).json({message: "Workout deleted successfully"});
+        const workout = await Workout.deleteOne({_id: req.body.workoutID})
+        return res.status(200).json({message: "Workout deleted successfully", workout: workout});
     } catch (err) {
         return res.status(500).json({message: err.message})
     }

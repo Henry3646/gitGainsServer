@@ -156,7 +156,7 @@ export const removeWorkoutFromUser = async (req, res) => {
 
 
 //deletes a user from the database
-//TODO - add security, AND FIX IT
+//TODO - add security
 //FIXED - forgot to add await, silly me
 export const deleteUser = async (req, res) => {
     try {
