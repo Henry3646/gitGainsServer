@@ -157,11 +157,11 @@ export const removeWorkoutFromUser = async (req, res) => {
 
 //deletes a user from the database
 //TODO - add security, AND FIX IT
+//FIXED - forgot to add await, silly me
 export const deleteUser = async (req, res) => {
     try {
-        const deleted = User.deleteOne({_id: req.body.userID})
-        console.log(deleted)
-        return res.status(200).json({message: "User deleted successfully"});
+        const user = await User.deleteOne({_id: req.body.userID})
+        return res.status(200).json({message: "User deleted successfully", user: user});
     } catch (err) {
         return res.status(500).json({message: err.message})
     }
