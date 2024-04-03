@@ -1,11 +1,14 @@
 import mongoose from "mongoose";
-import exerciseShema from 'Exercise.js';
 
 const workoutSchema = mongoose.Schema({
     name: { type: String, required: true},
     exercises: [String],
     datesCompleted: [Date],
+    owner: {
+        ownerName: { type: String },
+        ownerID: { type: String}
+    }
     
 });
 
-export default mongoose.model("Workout", workoutSchema);
+export const Workout = mongoose.model("Workout", workoutSchema);
