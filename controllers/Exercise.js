@@ -90,3 +90,14 @@ export const addRep = async (req, res) => {
         return res.status(200).json({message: err.message})
     } 
 }
+
+//Deletes an exercise from the database
+//TODO - add security
+export const deleteExercise = async (req, res) => {
+    try {
+        await Exercise.deleteOne({_id: req.body.exerciseId})
+        return res.status(200).json({message: "Exercise deleted succesfully"})   
+    } catch (err) {
+        return res.status(200).json({message: err.message})
+    } 
+}
