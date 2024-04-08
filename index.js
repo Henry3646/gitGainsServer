@@ -3,6 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import userRoutes from './routes/Users.js'
 import workoutRoutes from './routes/Workouts.js'
+import exerciseRoutes from './routes/Exercise.js'
 dotenv.config()
 
 const app = express();
@@ -13,6 +14,7 @@ const db = mongoose.connection
 app.use(express.json())
 app.use('/user', userRoutes)
 app.use('/workouts', workoutRoutes)
+app.use('/exercises', exerciseRoutes)
 
 const port = process.env.PORT || 8080
 mongoose.connect(process.env.MONGO_URI)
