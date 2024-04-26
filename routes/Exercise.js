@@ -8,10 +8,11 @@ router.post('/add', addExercise)
 router.get('/getExercise', getExercise)
 //UPDATE
 router.post('/updateExercise', updateExercise)
-router.post('/addWeight', addWeight)
-router.post('/addRep', addRep)
+// REMOVED - Updated CompletedExercise to replace storing completed exercises in Exercise
+//router.post('/addWeight', addWeight)
+//router.post('/addRep', addRep) 
 //DELETE
-router.delete('/')
+router.delete('/delete', deleteExercise)
 
 
 export default router 

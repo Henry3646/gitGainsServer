@@ -6,7 +6,7 @@ const workoutSchema = mongoose.Schema({
     datesCompleted: [Date],
     owner: {
         ownerName: { type: String },
-        ownerID: { type: String}
+        ownerID: { type: String }
     },
     avgCaloriesBurned: { type: Number },
     avgTime: { type: Number },
