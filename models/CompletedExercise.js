@@ -1,12 +1,16 @@
 import mongoose from "mongoose";
 
 const completedExerciseSchema = mongoose.Schema({
-    exerciseID: { type: String, required: true },
-    dateCompleted: { type: Date, required: true },
-    sets: { type: Number, required: true },
-    reps: [{ type: Number, required: true }],
-    weight: [{ type: Number, required: true }],
-    ownerID: { type: String, required: true },
+    exerciseID: { type: String, },
+    dateCompleted: { type: Date, },
+    sets: { type: Number, },
+    reps: [{ type: Number, }],
+    weight: [{ type: Number, }],
+    ownerID: { type: String, },
+    totalWeight: { type: Number, },
+    totalReps: { type: Number, },
+    totalSets: { type: Number, },
+
 })
 
 export const CompletedExercise = mongoose.model("CompletedExercise", completedExerciseSchema);

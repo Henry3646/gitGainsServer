@@ -9,7 +9,10 @@ const workoutSchema = mongoose.Schema({
         ownerID: { type: String }
     },
     avgCaloriesBurned: { type: Number },
-    avgTime: { type: Number },
+    avgTime: { 
+        totalTime: { type: Number },
+        numTimes: { type: Number }
+     },
     completedExercises: [String],
     numOfExercises: { type: Number },
     

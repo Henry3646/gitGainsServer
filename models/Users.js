@@ -9,6 +9,7 @@ const userSchema = mongoose.Schema({
     dateCreated: { type: Date },
     workouts: [String],
     isPremium: { type: Boolean },
+    weight: [{ type: Number }],
 })
 
 export function validateUser(user) {
