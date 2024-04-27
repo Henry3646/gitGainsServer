@@ -166,3 +166,40 @@ export const deleteUser = async (req, res) => {
         return res.status(500).json({message: err.message})
     }
 }
+
+//pushes a new weight to the users weight array
+export const addWeight = async (req, res) => {
+    try {
+        const user = await User.findOne({_id: req.body.userID})
+        const newWeights = user.weight.push(req.body.weight)
+        await User.findByIdAndUpdate({_id: req.body.userID}, {weight: newWeights})
+        return res.status(200).json({message: "Weight added successfully", user: user})
+    }
+    catch (err) {
+        return res.status(500).json({message: err.message})
+    }
+}
+
+//makes a user a premium user
+export const makePremium = async (req, res) => {
+    try {
+        const user = await User.findOne({_id: req.body.userID})
+        await User.findByIdAndUpdate({_id: req.body.userID}, {isPremium: true})
+        return res.status(200).json({message: "User is now premium", user: user})
+    }
+    catch (err) {
+        return res.status(500).json({message: err.message})
+    }
+}
+
+//removes premium status from a user
+export const removePremium = async (req, res) => {
+    try {
+        const user = await User.findOne({_id: req.body.userID})
+        await User.findByIdAndUpdate({_id: req.body.userID}, {isPremium: false})
+        return res.status(200).json({message: "User is no longer premium", user: user})
+    }
+    catch (err) {
+        return res.status(500).json({message: err.message})
+    }
+}
