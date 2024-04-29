@@ -10,6 +10,9 @@ const userSchema = mongoose.Schema({
     workouts: [String],
     isPremium: { type: Boolean },
     weight: [{ type: Number }],
+    height: { type: Number },
+    birthday: { type: Date },
+    phoneNumber: { type: String },
 })
 
 export function validateUser(user) {
